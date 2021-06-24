@@ -1,0 +1,468 @@
+/*DEFINO LA PALETA DE COLORES
+:pseudoselectores*/
+:root {
+	--blanco: #ffffff;
+	--oscuro: #212121;
+	--primario: #ffc107;
+	/*rgba(255,193,7)*/
+	--secundario: #0097a7;
+	--gris: #757575;
+	--gris-claro: #dfe9f3;
+
+	/*--fuente-principal: 3.8rem;*/
+}
+
+/*CON ESTAS LINEAS DE ACA ABAJO PODEMOS ESCRIBIR 1rem = 10px*/
+/*GLOBALES*/
+html {
+	font-size: 62.5%;
+	box-sizing: border-box;
+	scroll-snap-type: y mandatory;
+}
+
+/*SCROLL SNAP*/
+.servicios, .navegacion-principal, .formulario{
+	scroll-snap-align: center;
+	scroll-snap-stop: always;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+	/*HACK PARA BOX MODEL*/
+}
+
+body {
+	font-size: 16px;
+	/*1rem = 10px*/
+	font-family: "Krub", sans-serif;
+	background-image: linear-gradient(to top,
+			var(--gris-claro) 8%,
+			var(--blanco) 100%);
+}
+
+/*TIPOGRAFIA*/
+h1 {
+	font-size: 3.8rem;
+}
+
+h2 {
+	font-size: 2.8rem;
+}
+
+h3 {
+	font-size: 1.8rem;
+}
+
+h1,
+h2,
+h3 {
+	text-align: center;
+}
+
+/*USER AGENT STYLESHEET (LAS APLICA EL NAVEGADOR)*/
+/*TITULO*/
+.titulo {
+	text-align: center;
+	/*text-align: left(default)|center|right;*/
+	font-size: 3.8rem;
+	/*3.8rem = 38px*/
+	/*color: var(--primario);*/
+	/*font-family: Arial, Helvetica, sans-serif;*/
+	/*400=normal, 700=bold(default)*/
+	/*font-weight: 400;*/
+}
+
+/*1rem = 16px (global by default)*/
+/*em: toma el tamaño del padre*/
+/*h1 span = aplica las reglas a los span que pertenezcan a un h1*/
+.titulo span {
+	font-size: 2rem;
+	/*2rem = 20px*/
+}
+
+.contenedor {
+	/*width: 120rem;*/
+	max-width: 120rem;
+	/*SIRVE PARA QUE TOME 1200PX COMO MAXIMO, SOLO SI HAY ESE ANCHO DISPONIBLE, SINO TOMA EL 100% QUE ES EL ANCHO QUE TOMA POR DEFAULT EL DIV, QUE ES UN 100% POR EL DISPLAY:BLOCK*/
+	margin: 0 auto;
+	/*
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+    */
+}
+
+.boton {
+	background-color: var(--secundario);
+	color: var(--blanco);
+	padding: 1rem 3rem;
+	margin-top: 1rem;
+	font-size: 2rem;
+	text-decoration: none;
+	/*LE SACO LA LINEA DE ABAJO*/
+	text-transform: uppercase;
+	font-weight: 700;
+	border-radius: 0.5rem;
+	width: 90%;
+	text-align: center;
+	border: none;
+}
+
+@media (min-width: 768px) {
+	.boton {
+		width: auto;
+	}
+}
+
+.boton:hover {
+	cursor: pointer;
+}
+
+/*UTILIDADES*/
+.w-sm-100 {
+	width: 100%;
+}
+
+.flex {
+	display: flex;
+}
+
+@media (min-width: 768px) {
+	.w-sm-100 {
+		width: auto;
+	}
+}
+
+.alinear-derecha {
+	justify-content: flex-end;
+}
+
+/*NAVEGACION PRINCIPAL*/
+.nav-bg {
+	background-color: var(--secundario);
+}
+
+.navegacion-principal {
+	background-color: var(--secundario);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+@media (min-width: 768px) {
+	.navegacion-principal {
+		flex-direction: row;
+		justify-content: space-between;
+		/*CONTENIDO AGRUPADO: flex-start|center|flex-end || DISTRIBUIR CONTENIDO: space-around(separacion doble entre elementos)|space-between|space-evenly(misma separacion)*/
+	}
+}
+
+.sombra {
+	-webkit-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.5);
+	background-color: var(--blanco);
+	padding: 2rem;
+	border-radius: 1rem;
+}
+
+.navegacion-principal a {
+	/*background-color: var(--primario);*/
+	display: block;
+	text-align: center;
+	color: var(--blanco);
+	text-decoration: none;
+	font-size: 2rem;
+	font-weight: 700;
+	padding: 1rem;
+}
+
+.navegacion-principal a:hover {
+	background-color: var(--primario);
+	color: var(--oscuro);
+}
+
+/*HERO*/
+.hero {
+	/*AÑADIR IMAGEN*/
+	background-image: url(../../images/hero_background.jpg);
+	background-repeat: no-repeat;
+	/*PARA QUE LA IMAGEN NO SE REPITA*/
+	background-size: cover;
+	/*PARA QUE TOME TODO EL ANCHO DISPONIBLE*/
+	height: 450px;
+	/*padding: 20px;*/
+	position: relative;
+	/*1 - DEBO PONERLE RELATIVE AL PADRE*/
+	margin-bottom: 2rem;
+}
+
+.contenido-hero {
+	position: absolute;
+	/*2 - PARA PODER PONERLE ABSOLUTE AL HIJO Y POSICIONARLO EXACTAMENTE DONDE QUIERO*/
+	background-color: rgba(0, 0, 0, 0.25);
+	/*ANTERIOR*/
+	background-color: rgb(0 0 0 / 70%);
+	/*top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	*/
+	width: 100%;
+	/*PARA QUE LA SOMBRA TOME EL 100% DEL ESPACIO DISPONIBLE DEL HIJO*/
+	height: 100%;
+	/*PARA QUE LA SOMBRA TOME EL 100% DEL ESPACIO DISPONIBLE DEL HIJO*/
+	/*CODIGO PARA ALINEAR HORIZONTAL Y VERTICALMENTE*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+	color: var(--blanco);
+}
+
+.contenido .ubicacion {
+	display: flex;
+	align-items: flex-end;
+}
+
+@media (min-width: 768px) {
+	.servicios {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		/*grid-template-columns: 1fr 1fr 1fr;	
+		grid-template-columns: 33.33% 33.3% 33.3%;
+		grid-template-columns: 300px 300px; DEFINO DOS COLUMNAS DE 300 PIXELES
+		grid-template-rows: 200px 800px; DEFINO PARTE SUPERIOR 200px PARTE INFERIOR 800px
+		grid: 200px 800px / 300px 300px;*/
+		column-gap: 1rem;
+	}
+}
+
+.servicio {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.servicio h3 {
+	color: var(--secundario);
+	font-weight: 400;
+}
+
+.servicio p {
+	line-height: 2;
+	text-align: center;
+}
+
+.iconos {
+	height: 15rem;
+	width: 15rem;
+	background-color: var(--primario);
+	border-radius: 50%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+/*CONTACTO*/
+.formulario {
+	background-color: var(--gris);
+	width: min(60rem, 100%);
+	/*UTILIZA EL VALOR MAS PEQUEÑO*/
+	margin: 0 auto;
+	/*COMO EL PADRE DEL FORMULARIO NO ES FLEX, NO PUEDO COLOCARLE UN JUSTIFY CONTENT, COLOCO margin: 0 auto;*/
+	padding: 2rem;
+}
+
+.formulario fieldset {
+	border: none;
+}
+
+.formulario legend {
+	text-align: center;
+	font-size: 1.8rem;
+	text-transform: uppercase;
+	font-weight: 700;
+	margin-bottom: 2rem;
+	color: var(--primario);
+}
+
+@media (min-width: 768px) {
+	.contenedor-campos {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr); /*ACA DEFINO LA COLUMNA*/
+		grid-template-rows: auto auto 20rem;
+		column-gap: 1rem;
+	}
+
+	.campo:nth-child(3), .campo:nth-child(4){
+		grid-column: 1 / 3; /*ACA POSICIONO*/
+	}
+
+}
+
+
+.campo {
+	margin-bottom: 1rem;
+}
+
+.campo label {
+	color: var(--blanco);
+	font-weight: bold;
+	margin: .5rem;
+	display: block;
+}
+
+/*.campo input[type="text"],
+.campo input[type="tel"] {
+	background-color: red;
+}*/
+
+.campo textarea {
+	resize: none;
+}
+
+.input-text {
+	width: 100%;
+	border: none;
+	padding: 1.5rem;
+}
+
+.footer{
+	text-align: center;
+}
+
+/*SELECTORES=
+SELECTOR DE ELEMENTO: seleccionara un elemento en base a su etiqueta
+p{
+    color: blue;
+}
+SELECTOR DE CLASE: una clase se puede crear multiples veces (es reutilizable) e inicia con un punto .
+.cliente{
+    color: blue;
+}
+SELECTOR DE ID: podemos tener multiples IDs por pagina pero sus nombres no pueden repetirse (es unico, solo se puede usar una vez por documento)
+#cliente{
+    color: blue;
+}
+SELECTOR DE ATRIBUTO: selecciona elementos basado en algun atributo que tenga (src, href, etc...)
+[src="logo.jpg"]{
+    color: blue;
+}
+COMBINACION DE DESCENDENTES: selecciona los elementos hijos cuyo padre sea una clase (o ID) en especifico
+.cliente .nombre{
+    color: blue;
+}
+TODOS LOS HIJOS: aplica la siguiente regla a todos los parrafos hijos
+.cliente > p{
+    color: blue;
+}
+
+ESPECIFICIDAD: ¿QUE VALORES VAN A SER TOMADOS EN CUENTA POR EL NAVEGADOR? 
+mientras mas especifico sea un selector, mas probable es que se aplique, no importando tanto en que parte del documento se encuentra
+EJ:
+p{
+    color: blue;
+}
+p{
+    color: red; ✓ (SE MUESTRA ESTE, YA QUE TIENEN LA MISMA ESPECIFICIDAD, PERO EL ROJO ESTA AL FINAL)
+}
+EJ2:
+p.parrafo{
+    color: blue; ✓ (SE MUESTRA ESTE, ES MAS ESPECIFICO)
+}
+
+p{
+    color: red;
+}
+
+EJ3:
+p#parrafo{
+    color: blue;
+}
+p{
+    color: red!important; ✓ (SE MUESTRA ESTE, SI BIEN ES MENOS ESPECIFICO QUE EL DE ARRIBA, TIENE IMPORTANT COMO FLAG)
+}
+
+COLORES EN CSS: (HEX, NOMBRE, HSL, HSLA, RGB, RGBA)
+nombre: color: blue; color: black; color: cornflowerblue;
+HEX: #000, #000000
+RGB: rgb(000,000,000), RGBA: rgba(000,000,000, 0.5) (RED, GREEN, BLUE)
+HSL: hsl(), HSLA: hsla() (HUE, SATURATION, LIGHTNESS)
+
+DISPLAY BLOCK O INLINE:
+TODOS LOS ELEMENTOS EN HTML TIENEN UN DISPLAY POR DEFAULT:
+BLOCK, SIGNIFICA QUE EL ELEMENTO SE COLOCARA UNO DEBAJO DEL OTRO, SIN IMPORTAR SU TAMAÑO O CONTENIDO.
+INLINE, SIGNIFICA QUE EL ELEMENTO SE VA A POSICIONAR A LA DERECHA UNA VEZ QUE HAYA TOMADO EL ESPACIO QUE REQUIERE
+NINGUN ELEMENTO VIENE CON DISPLAY FLEX O GRID POR DEFAULT.
+
+MARGIN Y PADDING:
+MARGIN: ES LA SEPARACION DESDE EL LIMITE DEL ELEMENTO HACIA AFUERA, QUE TANTA SEPARACION VOY A TENER (LO HACE HACIA AFUERA).
+PADDING: ES COMO "ENGORDAR" EL ELEMENTO, POR EJEMPLO SI TENGO UN COLOR DE FONDO SE AGRANDA (LO HACE HACIA ADENTRO).
+
+FLEXBOX: MODELO UNIDIMENSIONAL PARA CREAR LAYOUTS. DIRECCICON Y EJES.
+DIRECCION: row (fila)(default), column (columna), row-reverse, column-reverse
+PARA LAS FILAS: justify-content: ...;
+PARA LAS COLUMNAS: align-items: ...;
+
+FORMAS DE ESCRIBIR CSS: BEM, UTILITY FIRST o MODULOS
+BEM = BLOQUES, ELEMENTOS, MODIFICADORES (BOOTSTRAP)
+	ej:		.card{}
+			.card__titulo{}
+			.card__imagen{}
+			.card__boton{}
+			.card__boton--activo{}
+UTILITY FIRST (TAILWINDS)
+	ej:		.text-center{}
+			.color-red-100{}
+			.bg-blue-200{}
+			.p-2{}
+			.m-2{}
+MODULOS (BOOTSTRAP)
+	ej:		.card{}
+			.card  h2{}
+			.card img{}
+			.card a{}
+
+RESPONSIVE WEB DESIGN, MEDIA QUERIES
+@media (min-width: 768px){
+}
+
+@media (min-width: 992px){
+}
+
+VALORES MAS USUALES: 480px, 768px, 1140px, 1440px
+
+CSS BOX-MODEL:
+EL TAMAÑO DE LO QUE SE MUESTRA EN PANTALLA ESTA DELIMITADO POR 4 COSAS: TAMAÑO DEL CONTENIDO, PADDING, BORDER, MARGIN
+ej: 	.cliente{
+		padding: 20px;
+		width: 200px;
+		border: 10px solid red;
+		}
+		EL ELEMENTO MIDE 260px = 200 width + 20 padding + 20 padding + 20 border
+SNIPPET PARA DESHACERSE DEL BORDER BOX
+
+html{
+	box-sizing: border-box;
+}
+
+*, *:before, *:after{
+	box-sizing: inherit;
+}
+
+CSS: GRID: EL CONTENIDO SE AGRUPA DENTRO DE UN AREA DEFINIDA. ES COMO UNA TABLA DE HTML, COM MAS FLEXIBILIDAD EN EL DISEÑO.
+FLEXBOX: 1 DIMENSION.
+CSS GRID: 2 DIMENSIONES.
+
+¿CUANDO UTILIZAR FLEXBOX Y CUANDO UTILIZAR GRID?
+UTILIZAR FLEXBOX PARA ALINEAR O DISTRIBUIR LOS ELEMENTOS QUE ESTARAN DENTRO DE CONTENEDORES (EJ: NAVBAR)
+UTILIZAR GRID PARA DEFINIR EL LAYOUR DE NUESTRO SITIO WEB, COMO PUEDEN SER LAS COLUMNAS O CONTENEDORES DE ELEMENTOS
+*/
